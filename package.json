@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "beautiful": "prettier --single-quote --trailing-comma all --write \"src/**/*.{js,json,scss}\"",
+    "beautiful": "pretlint-staged",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,9 @@
     "url": "https://github.com/NguyenvanLuc06081994/node_js/issues"
   },
   "homepage": "https://github.com/NguyenvanLuc06081994/node_js#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6"
