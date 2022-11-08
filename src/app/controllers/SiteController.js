@@ -1,7 +1,7 @@
 const Course = require('../models/Course');
 
 class SiteController {
-    index(req, res) {
+    index(req, res, next) {
         Course.find({}, function (err, courses) {
             if (!err) {
                 res.json(courses);
