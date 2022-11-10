@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="022c56cc-0641-4365-acf5-6a23a2f62b76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controllers/SiteController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controllers/SiteController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -41,6 +41,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667926644409</updated>
       <workItem from="1667926645560" duration="28000" />
+      <workItem from="1668096581188" duration="157000" />
     </task>
     <servers />
   </component>
