@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const methodOverride = require('method-override');
 const app = express();
 const port = 3000;
 
@@ -18,6 +19,9 @@ app.use(
         extened: true,
     }),
 );
+
+app.use(methodOverride('_method'));
+
 app.use(express.json());
 //http logger
 const morgan = require('morgan');
@@ -30,6 +34,9 @@ app.engine(
     'hbs',
     engine({
         extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        },
     }),
 );
 app.set('view engine', 'hbs');
