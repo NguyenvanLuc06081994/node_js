@@ -39,14 +39,33 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-danger">Xóa</button>
+        <button type="button" class="btn btn-danger" id="confirm-btn">Xóa</button>
       </div>
     </div>
   </div>
 </div>
 
+{{!-- form hidden delete course --}}
+
+<form method="post" name="delete-form">
+</form>
+
 <script>
+  let courseId;
+  let buttonConfirm = document.querySelector('#confirm-btn');
+  let formDeleteCourse = document.forms['delete-form'];
+  //when dom loaded
+  document.addEventListener("DOMContentLoaded", (event) => {
+    $('#delete-course-modal').on('show.bs.modal', function (event) {
+      let button = $(event.relatedTarget);
+      courseId = button.data('id');
+    })
+  })
+  //when button confirm click
+  buttonConfirm.onclick = function (event) {
+    formDeleteCourse.action = `/courses/${courseId}?_method=DELETE`;
+    formDeleteCourse.submit();
+  }
   
-
-
+  
 </script>
