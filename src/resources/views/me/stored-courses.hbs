@@ -17,10 +17,36 @@
       <td>{{this.createdAt}}</td>
       <td>
         <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
-        <a href="button" class="btn btn-link">Xóa</a>
+        <a href="" class="btn btn-link" data-toggle="modal" data-target="#delete-course-modal" data-id="{{this._id}}">Xóa</a>
       </td>
     </tr>
     {{/each}}
   </tbody>
 </table>
 </div>
+  {{!-- Modal confirm delete course --}}
+<div class="modal" tabindex="-1" role="dialog" id="delete-course-modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa khóa học?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chắc chắn muốn xóa khóa học <span class="course-name"></span>?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-danger">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+
+
+</script>
