@@ -17,9 +17,8 @@ class CourseController {
     }
     //create model course
     store(req, res, next) {
-        let formData = req.body;
-        formData.image = `https://i.ytimg.com/vi/${formData.videoId}/hq720.jpg`;
-        const course = new Course(formData);
+        req.body.image = `https://i.ytimg.com/vi/${req.body.videoId}/hq720.jpg`;
+        const course = new Course(req.body);
         course
             .save()
             .then(() => {
@@ -48,8 +47,25 @@ class CourseController {
             .catch(next);
     }
 
+     //[PATCH] courses/:id/restore
+     restore(req, res, next) {
+        let id = req.params.id;
+        Course.restore({ _id: id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
      //[DELETE] courses/:id
      destroy(req, res, next) {
+        let id = req.params.id;
+        Course.delete({ _id: id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
+    
+     //[DELETE] courses/:id
+     forceDelete(req, res, next) {
         let id = req.params.id;
         Course.deleteOne({ _id: id })
             .then(() => res.redirect('back'))
