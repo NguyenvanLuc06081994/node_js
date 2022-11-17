@@ -47,25 +47,31 @@ class CourseController {
             .catch(next);
     }
 
-     //[PATCH] courses/:id/restore
-     restore(req, res, next) {
+    //[PATCH] courses/:id/restore
+    restore(req, res, next) {
         let id = req.params.id;
         Course.restore({ _id: id })
             .then(() => res.redirect('back'))
             .catch(next);
     }
 
-     //[DELETE] courses/:id
-     destroy(req, res, next) {
+    //[POST] courses/handle-form-action
+    handleFormAction(req, res, next) {
+        Course.delete({ _id: { $in: req.body.courseIds } })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
+    //[DELETE] courses/:id
+    destroy(req, res, next) {
         let id = req.params.id;
         Course.delete({ _id: id })
             .then(() => res.redirect('back'))
             .catch(next);
     }
 
-    
-     //[DELETE] courses/:id
-     forceDelete(req, res, next) {
+    //[DELETE] courses/:id
+    forceDelete(req, res, next) {
         let id = req.params.id;
         Course.deleteOne({ _id: id })
             .then(() => res.redirect('back'))
